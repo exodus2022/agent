@@ -2,7 +2,7 @@
 
 MAIN() {
   live=$(ps -AL | grep tinyproxy | wc -l)
-  ip=$(dig +short myip.opendns.com @resolver1.opendns.com)
+  ip=$(curl ifconfig.me)
   host="$(hostname -f)"
   data='''{"KEY":"SEC_KEY100200300","host":"'$host'","ip":"'$ip'","live":"'$live'","rtx":'"$(vnstat -tr --json)"'}'''
   curl -X POST \
